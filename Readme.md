@@ -17,7 +17,9 @@ I want to create a dynamic hyperlink on each line in a report that utilizes some
 -----------------------------<br />
 1 Williams<br />
 2 Smith</p><p>A hyperlink should be as follows, where the "id" parameter value corresponds to the Id field value in my database for a given row:<br />
-"<a href="http://www.testarea.com/property.aspx?id=1">http://www.testarea.com/property.aspx?id=1</a>"</p><p>I have looked at the HtmlItemCreated event, but could not access the Id field value from it.</p><p><strong>Solution</strong>:<br />
+http://www.testarea.com/property.aspx?id=1"</p>
+
+<p>I have looked at the HtmlItemCreated event, but could not access the Id field value from it.</p><p><strong>Solution</strong>:<br />
 Data row values are unavailable from the HtmlItemCreated event.  You will need to write a BeforePrint event hander for the object for which you handle the HtmlItemCreated event and set the desired values to the object's Tag property.  Then, you will be able to extract them from the e.Data.Tag parameter of the HtmlItemCreated event.</p><p></p>
 
 ```cs
